@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Material Didático sobre Algoritmos</title>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #83e2e6;
+            padding: 20px;
+        }
+
+        nav {
+            background-color: #5bbbc1;
+            padding: 10px;
+            margin: 0 auto 30px auto;
+            border-radius: 5px;
+            max-width: 800px;
+        }
+
+        nav ul {
+            text-align: center;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li a {
+            text-align: center;
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            background-color: #d8eff3;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 0;
+        }
+
+        li p:first-child {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        p {
+            text-align: center;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 40px auto;
+            background-color: #b3d5dd;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        fieldset {
+            border: 1px solid #000;
+            padding: 15px;
+        }
+
+        legend {
+            font-weight: bold;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input, textarea, select, button {
+            width: 100%;
+            margin-top: 5px;
+            padding: 6px;
+        }
+
+        button {
+            margin-top: 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#conteudo">Conteúdo</a></li>
+            <li><a href="#feedback">Feedback</a></li>
+        </ul>
+    </nav>
+
+    <h1 id="inicio">Material Didático de Algoritmos</h1>
+
+    <p>Este material didático aborda funções básicas de manipulação de strings utilizadas em algoritmos.
+    Ao longo do conteúdo, são apresentados conceitos como contagem de caracteres, extração de partes
+    de uma string, conversão entre caracteres e valores numéricos com base na tabela ASCII, além da
+    conversão de textos para letras maiúsculas e minúsculas. O objetivo é auxiliar na compreensão
+    dessas funções na construção de algoritmos.</p>
+
+    <ul id="conteudo">
+        <li>
+            <p>COMPR(s)</p>
+            <p>Essa função retorna o tamanho em quantidade de caracteres (de uma string)</p>
+        </li>
+
+        <li>
+            <p>COPIA(s,p,q)</p>
+            <p>Essa função retorna uma substring parte de uma string s, a partir da posição (p) a quantidade de caracteres (q)</p>
+        </li>
+
+        <li>
+            <p>ASC(c)</p>
+            <p>Esta função retorna o valor DECIMAL segundo a tabela ASCII de acordo com o caractere passado como parâmetro (c).</p>
+        </li>
+
+        <li>
+            <p>CARAC(i)</p>
+            <p>Esta função retorna o caractere segundo a tabela ASCII de acordo com o parâmetro inteiro passado no parâmetro (i)</p>
+        </li>
+
+        <li>
+            <p>NUMPCARAC(i)</p>
+            <p>Esta função retorna em uma string os caracteres do parâmetro inteiro (i)</p>
+        </li>
+
+        <li>
+            <p>CARACPNUM(s)</p>
+            <p>Esta função retorna em um valor (inteiro ou real) o valor passado no parâmetro do tipo string. Faz exatamente o contrário do exemplo anterior.</p>
+        </li>
+
+        <li>
+            <p>MAIUSC(s)</p>
+            <p>Esta função retorna todos os caracteres convertidos em maiúsculo que foram passados como parâmetro em (s)</p>
+        </li>
+
+        <li>
+            <p>MINUSC(s)</p>
+            <p>Esta função retorna todos os caracteres convertidos em minúsculo que foram passados como parâmetro em (s)</p>
+        </li>
+    </ul>
+
+    <form id="feedback">
+        <fieldset>
+            <legend>Envie seu Feedback do Material</legend>
+
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome">
+
+            <label for="avaliacao">Avaliação do conteúdo:</label>
+            <select id="avaliacao" name="avaliacao">
+                <option>Excelente</option>
+                <option>Bom</option>
+                <option>Mediano</option>
+                <option>Ruim</option>
+            </select>
+
+            <label for="comentario">Comentário:</label>
+            <textarea id="comentario" name="comentario" rows="4"></textarea>
+
+            <button type="submit">Enviar</button>
+        </fieldset>
+    </form>
+
+</body>
+</html>
