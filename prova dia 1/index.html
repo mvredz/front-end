@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Copa do Mundo 2026</title>
+
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            background: #9061e7;
+            text-align: center;
+            padding: 15px;
+        }
+
+        nav a {
+            color: #100d14;
+            font-weight: bold;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .secao {
+            background-color: #e6e0e0;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px;
+        }
+
+        .titulo {
+            font-size: 20px;
+            font-weight: bold;
+            color: #0f172a;
+            text-align: left;
+        }
+
+        p {
+            font-size: 14px;
+            color: #334155;
+        }
+
+        button {
+            display: block;
+            margin: 30px auto;
+            padding: 12px 25px;
+
+            background-color: #b07cf3;  
+            color: #000000;
+
+            font-size: 15px;
+            font-weight: bold;
+            text-align: center;
+
+            border: none;
+            border-radius: 12px;
+
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+    </style>
+
+</head>
+<body>
+
+    <nav>
+        <a href="#organizacao">Organização e Sedes</a>
+        <a href="#formato">Novo Formato</a>
+        <a href="#impacto">Expectativas e Impacto</a>
+    </nav>
+
+    <section id="organizacao" class="secao">
+        <p class="titulo">🌍 Organização e Sedes</p>
+        <p>
+            A Copa do Mundo FIFA de 2026 será a primeira edição realizada em três países:
+            Estados Unidos, Canadá e México. Essa será também a maior Copa da história em
+            número de cidades-sede, com partidas distribuídas por diversas regiões da
+            América do Norte, ampliando o alcance global do torneio.
+        </p>
+    </section>
+
+    <section id="formato" class="secao">
+        <p class="titulo">⚽ Novo Formato</p>
+        <p>
+            O torneio contará com 48 seleções, em vez das tradicionais 32. As equipes
+            serão divididas em grupos, aumentando o número total de jogos e dando mais
+            oportunidades para países de diferentes continentes participarem.
+        </p>
+    </section>
+
+    <section id="impacto" class="secao">
+        <p class="titulo">🏆 Expectativas e Impacto</p>
+        <p>
+            A edição de 2026 promete ser uma das mais assistidas da história, com grande
+            impacto econômico e cultural nos países-sede. Além disso, seleções
+            tradicionais e emergentes devem protagonizar jogos de alto nível,
+            aumentando ainda mais o interesse global pelo futebol.
+        </p>
+    </section>
+
+    <button onclick="mostrarTabela()">Mostrar Tabela de Jogos</button>
+
+    <script>
+        function mostrarTabela() {
+
+            if (document.getElementById("tabelaJogos")) {
+                return;
+            }
+
+            const imagem = document.createElement("img");
+            imagem.id = "tabelaJogos";
+            imagem.src = "img/Tabela_Jogos.png"; 
+            imagem.alt = "Tabela de Jogos da Copa 2026";
+            imagem.style.display = "block";
+            imagem.style.margin = "40px auto";
+            imagem.style.width = "800px";
+
+            document.body.appendChild(imagem);
+        }
+    </script>
+
+</body>
+</html>
