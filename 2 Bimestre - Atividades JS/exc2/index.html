@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Conversor de Temperatura</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            width: 300px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Conversor de Temperatura</h2>
+
+    <label>Celsius (°C)</label>
+    <input type="number" id="celsius" step="0.1">
+
+    <label>Fahrenheit (°F)</label>
+    <input type="number" id="fahrenheit" step="0.1">
+</div>
+
+<script>
+    const celsiusInput = document.getElementById("celsius");
+    const fahrenheitInput = document.getElementById("fahrenheit");
+
+    celsiusInput.addEventListener("input", () => {
+        if (celsiusInput.value === "") {
+            fahrenheitInput.value = "";
+            return;
+        }
+        let c = parseFloat(celsiusInput.value);
+        let f = (c * 9/5) + 32;
+        fahrenheitInput.value = f.toFixed(2);
+    });
+
+    fahrenheitInput.addEventListener("input", () => {
+        if (fahrenheitInput.value === "") {
+            celsiusInput.value = "";
+            return;
+        }
+        let f = parseFloat(fahrenheitInput.value);
+        let c = (f - 32) * 5/9;
+        celsiusInput.value = c.toFixed(2);
+    });
+</script>
+
+</body>
+</html>

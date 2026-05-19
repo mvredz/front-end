@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Card Guard - Análise de Cartão</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            background: #fff;
+            width: 420px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        .painel {
+            margin-top: 20px;
+            border-top: 1px solid #ddd;
+            padding-top: 15px;
+        }
+
+        .valido {
+            color: green;
+        }
+
+        .invalido {
+            color: red;
+        }
+
+        .linha {
+            margin: 6px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>Card Guard</h2>
+
+    <input type="text" id="numeroCartao" placeholder="Digite o número do cartão">
+    <button id="btnAnalisar">Analisar Cartão</button>
+
+    <div class="painel" id="resultado"></div>
+</div>
+
+<script>
+    document.getElementById("btnAnalisar").addEventListener("click", analisarCartao);
+
+    function analisarCartao() {
+        let numero = document.getElementById("numeroCartao").value;
+        const resultado = document.getElementById("resultado");
+
+        // Remove espaços e pontos
+        numero = numero.replace(/\D/g, '');
+
+        // Validação de tamanho
+        if (numero.length < 13 || numero.length > 16) {
+            resultado.innerHTML = "<p class='invalido'>Número inválido (13 a 16 dígitos).</p>";
+            return;
+        }
+
+        const valido = validarLuhn(numero);
+        const bandeira = identificarBandeira(numero);
+        const setor = identificarSetor(numero.charAt(0));
+        const banco = identificarBanco(numero.substring(1, 5));
+
+        resultado.innerHTML = `
+            <div class="linha">Status: <strong class="${valido ? 'valido' : 'invalido'}">
+                ${valido ? 'Válido' : 'Inválido'}
+            </strong></div>
+            <div class="linha">Bandeira: ${bandeira}</div>
+            <div class="linha">Categoria de Setor: ${setor}</div>
+            <div class="linha">Banco Emissor: ${banco}</div>
+        `;
+    }
+
+    // Algoritmo de Luhn
+    function validarLuhn(numero) {
+        let soma = 0;
+        let alternar = false;
+
+        for (let i = numero.length - 1; i >= 0; i--) {
+            let n = Number(numero.charAt(i));
+
+            if (alternar) {
+                n *= 2;
+                if (n > 9) n -= 9;
+            }
+
+            soma += n;
+            alternar = !alternar;
+        }
+
+        return soma % 10 === 0;
+    }
+
+    // Identificação da bandeira
+    function identificarBandeira(numero) {
+        if (/^4/.test(numero)) return "Visa";
+        if (/^5[1-5]/.test(numero)) return "Mastercard";
+        if (/^3[47]/.test(numero)) return "American Express";
+        if (/^6/.test(numero)) return "Discover";
+        return "Desconhecida";
+    }
+
+    // Setor industrial (1º dígito)
+    function identificarSetor(digito) {
+        switch (digito) {
+            case "1": return "Companhias Aéreas";
+            case "2": return "Serviços Financeiros";
+            case "3": return "Viagens e Entretenimento";
+            case "4": return "Instituições Financeiras";
+            case "5": return "Instituições Financeiras";
+            case "6": return "Comércio e Bancos";
+            default: return "Outros";
+        }
+    }
+
+    // Banco emissor (exemplo didático)
+    function identificarBanco(codigo) {
+        switch (codigo) {
+            case "0010": return "Infinity Bank";
+            case "2370": return "Bradesco";
+            case "3410": return "Itaú";
+            case "0330": return "Santander";
+            default: return "Banco não identificado";
+        }
+    }
+</script>
+
+</body>
+</html>
